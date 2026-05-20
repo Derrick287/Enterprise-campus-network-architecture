@@ -502,6 +502,11 @@ This project is intended for educational, research, and enterprise network archi
 
 ---
 
+# Quote by Author
+"Connectivity is a commodity; continuity is an engineering masterpiece. Behind every efficient organization is infrastructure engineered for performance, protected for resilience, and designed for growth.”
+
+---
+
 # 👨‍💻 Author
 
 Designed and implemented by *Derrick Nyongesa Wesonga* | ICT & Network Infrastructure professional specializing in enterprise systems, VoIP infrastructure, and resilient Cisco-based architectures.
