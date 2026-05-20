@@ -1,0 +1,130 @@
+hostname Router
+
+spanning-tree mode pvst
+
+interface Loopback0
+ ip address 10.10.10.10 255.255.255.255
+ exit
+interface FastEthernet0/0
+ ip address 8.8.8.1 255.255.255.0
+ duplex auto
+ speed auto
+ exit
+interface FastEthernet0/1
+ ip address 200.0.0.1 255.255.255.252
+ duplex auto
+ speed auto
+ exit
+interface Vlan1
+ no ip address
+ shutdown
+ exit
+ 
+ip classless
+ip route 172.16.0.0 255.255.252.0 200.0.0.2 
+ip route 0.0.0.0 0.0.0.0 8.8.8.8 
+ip route 192.168.80.0 255.255.255.0 200.0.0.2 
+ip route 192.168.30.0 255.255.255.0 200.0.0.2 
+ip route 192.168.21.0 255.255.255.0 200.0.0.2 
+ip route 192.168.10.0 255.255.255.0 200.0.0.2 
+ip route 192.168.20.0 255.255.255.0 200.0.0.2 
+ip route 192.168.40.0 255.255.255.0 200.0.0.2 
+ip route 192.168.50.0 255.255.255.0 200.0.0.2 
+ip route 192.168.60.0 255.255.255.0 200.0.0.2 
+
+telephony-service
+ max-ephones 10
+ max-dn 10
+ ip source-address 192.168.80.254 port 2000
+ auto assign 1 to 8
+ create cnf-files version-stamp Jan 01 2002 00:00:00
+ exit
+ 
+ 
+ephone-dn 1
+ number 1001
+ exit
+ephone-dn 2
+ number 1002
+ exit
+ephone-dn 3
+ number 1003
+ exit
+ephone-dn 4
+ number 1004
+ exit
+ephone-dn 6
+ number 1006
+ exit
+ephone-dn 7
+ number 1007
+ exit
+ephone-dn 8
+ number 1008
+ exit
+ephone-dn 5
+ number 1005
+ exit
+ 
+ 
+ephone 1
+ device-security-mode none
+ mac-address 0060.3E13.8442
+ type 7960
+ button 1:1
+ exit
+ephone 2
+ device-security-mode none
+ mac-address 0001.C996.8442
+ type 7960
+ button 1:2
+ exit
+ephone 3
+ device-security-mode none
+ mac-address 00E0.8F6E.5E81
+ type 7960
+ button 1:3
+ exit
+ephone 4
+ device-security-mode none
+ mac-address 00D0.58E5.578D
+ type 7960
+ button 1:4
+ exit
+ephone 5
+ device-security-mode none
+ mac-address 000A.F3A6.66D2
+ type 7960
+ button 1:5
+ exit
+ephone 6
+ device-security-mode none
+ mac-address 0001.C996.EB9B
+ type 7960
+ button 1:6
+ exit
+ephone 7
+ device-security-mode none
+ mac-address 0030.A34B.EA0B
+ type 7960
+ button 1:7
+ exit
+ephone 8
+ device-security-mode none
+ mac-address 0030.F228.85CD
+ type 7960
+ button 1:8
+ exit
+ephone 9
+ device-security-mode none
+ mac-address 00E0.F748.025D
+ type 7960
+ button 1:1
+ exit
+ephone 10
+ device-security-mode none
+ mac-address 0002.1647.67D8
+ type 7960
+ button 1:6
+ exit
+

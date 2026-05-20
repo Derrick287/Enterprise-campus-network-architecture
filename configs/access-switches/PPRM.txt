@@ -1,0 +1,53 @@
+Access_Switches
+int fa0/1-20
+ switchport access vlan 30
+ switchport mode access
+ spanning-tree portfast
+ exit
+interface fa/2-3
+ switchport access vlan 30
+ switchport mode access
+ switchport voice vlan 80
+ spanning-tree portfast
+ exit
+interface FastEthernet0/4-20
+ switchport access vlan 30
+ switchport mode access
+ spanning-tree portfast
+ exit
+interface FastEthernet0/21-24
+ shutdown
+ exit
+interface FastEthernet0/21
+ shutdown
+ exit
+interface GigabitEthernet0/1-2
+ switchport trunk allowed vlan 30,80
+ switchport mode trunk
+ channel-group 1 mode active
+ exit
+interface Vlan1
+ no ip address
+ shutdown
+ exit
+spanning-tree mode pvst
+spanning-tree extend system-id
+
+interface Port-channel1
+ switchport trunk allowed vlan 30,80
+ switchport mode trunk
+ exit
+
+spanning-tree mode pvst
+spanning-tree extend system-id
+
+do wr
+end
+ 
+
+
+
+
+
+
+
