@@ -313,62 +313,51 @@ Implemented enterprise-grade security controls including:
 # 📂 Repository Structure
 
 ```text
-Enterprise-Core-Access-Infrastructure/
-│
-├── README.md
-│
-├── topology/
-│   ├── enterprise_topology.png
-│   └── vlan_architecture.png
-│
-├── configs/
-│   ├── core-switch/
-│   │   ├── vlan_config.txt
-│   │   ├── etherchannel_config.txt
-│   │   └── svi_routing.txt
-│   │
-│   ├── access-switches/
-│   │   ├── pprm_switch.txt
-│   │   ├── rme_switch.txt
-│   │   └── voice_vlan_config.txt
-│   │
-│   ├── firewall/
-│   │   ├── asa_interfaces.txt
-│   │   ├── nat_config.txt
-│   │   └── acl_policies.txt
-│   │
-│   └── edge-router/
-│       ├── cme_config.txt
-│       ├── telephony_service.txt
-│       └── static_routes.txt
-│
-├── services/
-│   ├── dhcp/
-│   │   └── dhcp_scopes.md
-│   │
-│   ├── dns/
-│   │   └── dns_records.md
-│   │
-│   └── active-directory/
-│       └── ad_structure.md
-│
-├── security/
-│   ├── guest_isolation.md
-│   ├── acl_matrix.md
-│   └── nat_policies.md
-│
-├── monitoring/
-│   ├── validation_commands.md
-│   └── troubleshooting_guide.md
-│
-├── documentation/
-│   ├── implementation_sequence.md
-│   ├── network_design_decisions.md
-│   └── future_scalability.md
-│
-└── assets/
-    ├── screenshots/
-    └── diagrams/
+.
+└── Enterprise-campus-network-architecture
+    |
+    |-- README.md
+    ├── Assets
+    │   └── Screenshorts
+    │       ├── DHCP_Pool_1.png
+    │       ├── DHCP_Pool_2.png
+    │       └── DNS_Services.png
+    ├── configs
+    │   ├── access-switches
+    │   │   ├── pprm_switch.txt
+    │   │   ├── rme_switch.txt
+    │   │   └── voice_vlan_config.txt
+    │   ├── core-switch
+    │   │   ├── etherchannel_config.txt
+    │   │   ├── svi_routing.txt
+    │   │   └── vlan_config.txt
+    │   ├── edge-router
+    │   │   ├── cme_config.txt
+    │   │   ├── static_routes.txt
+    │   │   └── telephony_service.txt
+    │   └── firewall
+    │       ├── acl_policies.txt
+    │       ├── asa_interfaces.txt
+    │       └── nat_config.txt
+    ├── documentation
+    │   ├── future_scalability.md
+    │   ├── implementation_sequence.md
+    │   ├── InterfaceConfiguration.md
+    │   └── network_design_decisions.md
+    ├── monitoring
+    │   ├── troubleshooting_guide.md
+    │   └── validation_commands.md
+    ├── security
+    │   ├── acl_matrix.md
+    │   ├── guest_isolation.md
+    │   └── nat_policies.md
+    ├── services
+    │   ├── ad_structure.md
+    │   ├── dhcp_scopes.md
+    │   └── dns_records.md
+    └── topology
+        └── Enterprise_architecture.png
+        
 ```
 
 ---
