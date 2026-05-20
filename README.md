@@ -11,8 +11,7 @@ Production-grade enterprise network architecture implementing a resilient hierar
 ---
 # 🖼️ Enterprise Topology Diagram
 
-![Enterprise Network Topology](./Enterprise-campus-network-architecture/topology/logical-topology
-/Hierarchical_network_architecture.png)
+![Enterprise Network Topology](./Enterprise-campus-network-architecture/topology/Enterprise_architecture.png)
 
 ---
 
