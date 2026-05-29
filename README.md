@@ -17,7 +17,7 @@ Production-grade enterprise network architecture implementing a resilient hierar
 
 # 📌 Project Overview
 
-This project demonstrates the design and implementation of a secure and resilient enterprise network infrastructure based on Cisco networking technologies. The environment was architected using a hierarchical Core–Access model to ensure scalability, redundancy, simplified management, and optimized traffic flow across multiple organizational departments.
+This project demonstrates the design and implementation of a secure and resilient enterprise network infrastructure based on Cisco networking technologies. The environment was architected using a hierarchical Core-Access model to ensure scalability, redundancy, simplified management, and optimized traffic flow across multiple organizational departments.
 
 # Project Vision
 
