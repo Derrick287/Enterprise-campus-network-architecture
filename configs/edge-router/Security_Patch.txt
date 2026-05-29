@@ -1,0 +1,37 @@
+enable
+configure terminal
+
+no ip domain-lookup
+
+security passwords min-length 10
+
+enable secret @Cons1234!
+
+service password-encryption
+
+banner motd # Unauthorized access is prohibited! #
+
+username NETadmin secret LogAdmin!9
+
+ip domain-name security.com
+
+crypto key generate rsa
+1024
+
+ip ssh version 2
+
+login block-for 45 attempts 3 within 100
+
+line console 0
+password @Cons1234!
+login
+exec-timeout 7 0
+exit
+
+line vty 0 15
+transport input ssh
+login local
+exec-timeout 7 0
+exit
+
+
