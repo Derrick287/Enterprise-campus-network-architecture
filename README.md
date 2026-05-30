@@ -251,7 +251,7 @@ Dynamic IP assignment across all VLANs.
 Internal name resolution using:
 
 ```text
-.ncpd.local
+.company.local
 ```
 
 ### User & Resource Management
