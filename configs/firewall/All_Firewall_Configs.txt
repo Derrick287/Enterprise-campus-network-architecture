@@ -6,20 +6,24 @@ interface GigabitEthernet1/1
  security-level 0
  ip address 200.0.0.2 255.255.255.252
  no shutdown
+ exit
 
 interface GigabitEthernet1/2
  nameif inside
  security-level 100
  ip address 10.0.0.2 255.255.255.252
  no shutdown
+ exit
 
 object network GUEST
  subnet 172.16.0.0 255.255.252.0
  nat (inside,outside) dynamic interface
+ exit
 
 object network INSIDE-NET
  subnet 192.168.0.0 255.255.0.0
  nat (inside,outside) dynamic interface
+ exit
 
 route outside 0.0.0.0 0.0.0.0 200.0.0.1
 route inside 192.168.0.0 255.255.0.0 10.0.0.1
@@ -30,10 +34,12 @@ access-list GUEST_BLOCK extended permit ip any any
 
 class-map inspection_default
  match default-inspection-traffic
+ exit
 
 policy-map type inspect dns preset_dns_map
  parameters
   message-length maximum 512
+ exit
 
 policy-map global_policy
  class inspection_default
@@ -41,8 +47,11 @@ policy-map global_policy
   inspect ftp
   inspect icmp
   inspect tftp
+ exit
 
 service-policy global_policy global
 
 telnet timeout 5
 ssh timeout 5
+
+do wr mem

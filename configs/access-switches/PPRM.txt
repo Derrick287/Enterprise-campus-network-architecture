@@ -5,9 +5,11 @@ spanning-tree portfast default
 
 vlan 30
  name PPRM
+ exit
 
 vlan 80
  name VOICE
+ exit
  
 interface range FastEthernet0/1
  decription PRINTERS

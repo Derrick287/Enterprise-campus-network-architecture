@@ -33,6 +33,7 @@ vlan 70
 
 vlan 80
  name VOICE
+ exit
 
 interface GigabitEthernet1/0/1
  description TO-ASA-INSIDE
@@ -95,15 +96,19 @@ interface range GigabitEthernet1/1/1-4
 
 interface Port-channel1
  switchport mode trunk
+ exit
 
 interface Port-channel2
  switchport mode trunk
+ exit
 
 interface Port-channel3
  switchport mode trunk
+ exit
 
 interface Port-channel4
  switchport mode trunk
+ exit
 
 interface Vlan10
  ip address 192.168.10.1 255.255.255.0
@@ -152,3 +157,4 @@ interface Vlan80
 ip route 0.0.0.0 0.0.0.0 10.0.0.2
 ip route 192.168.80.254 255.255.255.255 10.0.0.2
 ip route 10.10.10.10 255.255.255.255 10.0.0.2
+do wr

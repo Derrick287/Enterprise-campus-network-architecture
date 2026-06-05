@@ -1,15 +1,18 @@
-hostname Router
+hostname Company_Router
 
 interface Loopback0
  ip address 10.10.10.10 255.255.255.255
+ exit
 
 interface FastEthernet0/0
  ip address 8.8.8.1 255.255.255.0
  no shutdown
+ exit
 
 interface FastEthernet0/1
  ip address 200.0.0.1 255.255.255.252
  no shutdown
+ exit
 
 ip route 0.0.0.0 0.0.0.0 8.8.8.8
 ip route 172.16.0.0 255.255.252.0 200.0.0.2
@@ -28,6 +31,7 @@ telephony-service
  ip source-address 192.168.80.254 port 2000
  auto assign 1 to 8
  create cnf-files
+ exit
 
 ephone-dn 1
  number 1001
@@ -57,38 +61,48 @@ ephone 1
  mac-address 0060.3E13.8442
  type 7960
  button 1:1
+ exit
 
 ephone 2
  mac-address 0001.C996.8442
  type 7960
  button 1:2
+ exit
 
 ephone 3
  mac-address 00E0.8F6E.5E81
  type 7960
  button 1:3
+ exit
 
 ephone 4
  mac-address 00D0.58E5.578D
  type 7960
  button 1:4
+ exit
 
 ephone 5
  mac-address 000A.F3A6.66D2
  type 7960
  button 1:5
+ exit
 
 ephone 6
  mac-address 0001.C996.EB9B
  type 7960
  button 1:6
+ exit
 
 ephone 7
  mac-address 0030.A34B.EA0B
  type 7960
  button 1:7
+ exit
 
 ephone 8
  mac-address 0030.F228.85CD
  type 7960
  button 1:8
+ exit
+ 
+do wr
