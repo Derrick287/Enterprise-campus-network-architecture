@@ -1,100 +1,48 @@
-hostname ciscoasa
+hostname Sorphos
 domain-name wr
-names
-!
+
 interface GigabitEthernet1/1
  nameif outside
  security-level 0
  ip address 200.0.0.2 255.255.255.252
-!
+ no shutdown
+
 interface GigabitEthernet1/2
  nameif inside
  security-level 100
  ip address 10.0.0.2 255.255.255.252
-!
-interface GigabitEthernet1/3
- no nameif
- no security-level
- no ip address
- shutdown
-!
-interface GigabitEthernet1/4
- no nameif
- no security-level
- no ip address
- shutdown
-!
-interface GigabitEthernet1/5
- no nameif
- no security-level
- no ip address
- shutdown
-!
-interface GigabitEthernet1/6
- no nameif
- no security-level
- no ip address
- shutdown
-!
-interface GigabitEthernet1/7
- no nameif
- no security-level
- no ip address
- shutdown
-!
-interface GigabitEthernet1/8
- no nameif
- no security-level
- no ip address
- shutdown
-!
-interface Management1/1
- management-only
- no nameif
- no security-level
- no ip address
- shutdown
-!
+ no shutdown
+
 object network GUEST
  subnet 172.16.0.0 255.255.252.0
  nat (inside,outside) dynamic interface
+
 object network INSIDE-NET
  subnet 192.168.0.0 255.255.0.0
  nat (inside,outside) dynamic interface
-!
-route outside 0.0.0.0 0.0.0.0 200.0.0.1 1
-route inside 192.168.0.0 255.255.0.0 10.0.0.1 1
-route inside 172.16.0.0 255.255.252.0 10.0.0.1 1
-!
+
+route outside 0.0.0.0 0.0.0.0 200.0.0.1
+route inside 192.168.0.0 255.255.0.0 10.0.0.1
+route inside 172.16.0.0 255.255.252.0 10.0.0.1
+
 access-list GUEST_BLOCK extended deny ip 172.16.0.0 255.255.252.0 192.168.0.0 255.255.0.0
 access-list GUEST_BLOCK extended permit ip any any
-access-list IT_ACCESS extended permit ip 192.168.21.0 255.255.255.0 any
-access-list INSIDE_ICMP extended permit icmp any any
-access-list INSIDE_PERMIT extended permit ip any any
-access-list INSIDE_ALLOW extended permit ip any any
-access-list OUTSIDE_IN extended permit icmp any any
-access-list OUTSIDE_IN extended permit ip any any
-access-list OUTSIDE_IN extended permit icmp host 200.0.0.1 any
-access-list OUTSIDE_IN extended permit ip host 200.0.0.1 any
-!
-!
-!
-!
+
 class-map inspection_default
  match default-inspection-traffic
-!
+
 policy-map type inspect dns preset_dns_map
  parameters
   message-length maximum 512
+
 policy-map global_policy
  class inspection_default
   inspect dns preset_dns_map
-  inspect ftp 
-  inspect icmp 
-  inspect tftp 
-!
+  inspect ftp
+  inspect icmp
+  inspect tftp
+
 service-policy global_policy global
-!
+
 telnet timeout 5
 ssh timeout 5
-!

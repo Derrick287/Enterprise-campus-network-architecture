@@ -1,53 +1,48 @@
+hostname SW0-PEA
 
-int fa0/1-20
- switchport access vlan 30
+spanning-tree mode pvst
+spanning-tree portfast default
+
+vlan 30
+ name PEA
+
+vlan 80
+ name VOICE
+ 
+interface range FastEthernet0/1
+ decription PRINTERS
+ exit
+
+interface range FastEthernet0/1-20
  switchport mode access
+ switchport access vlan 30
  spanning-tree portfast
  exit
-interface fa/2-3
- switchport access vlan 30
+
+interface range FastEthernet0/2-3
  switchport mode access
+ switchport access vlan 30
  switchport voice vlan 80
  spanning-tree portfast
  exit
-interface FastEthernet0/4-20
- switchport access vlan 30
- switchport mode access
- spanning-tree portfast
- exit
-interface FastEthernet0/21-24
+
+interface range FastEthernet0/21-24
+ decription ADMINISTRATIVELY_DOWN
  shutdown
  exit
-interface FastEthernet0/21
- shutdown
- exit
-interface GigabitEthernet0/1-2
- switchport trunk allowed vlan 30,80
+
+interface range GigabitEthernet0/1-2
+ decription ETHER_CHANNEL_TO_CORE
  switchport mode trunk
- channel-group 3 mode active
+ switchport trunk allowed vlan 30,80
+ channel-group 4 mode active
  exit
+
+interface Port-channel4
+ switchport mode trunk
+ switchport trunk allowed vlan 30,80
+ exit
+
 interface Vlan1
  no ip address
  shutdown
- exit
-spanning-tree mode pvst
-spanning-tree extend system-id
-
-interface Port-channel3
- switchport trunk allowed vlan 30,80
- switchport mode trunk
- exit
-
-spanning-tree mode pvst
-spanning-tree extend system-id
-
-do wr
-end
- 
-
-
-
-
-
-
-
