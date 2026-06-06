@@ -3,7 +3,7 @@ hostname SW0-PEA
 spanning-tree mode pvst
 spanning-tree portfast default
 
-vlan 30
+vlan 50
  name PEA
 
 vlan 80
@@ -15,13 +15,13 @@ interface range FastEthernet0/1
 
 interface range FastEthernet0/1-20
  switchport mode access
- switchport access vlan 30
+ switchport access vlan 50
  spanning-tree portfast
  exit
 
 interface range FastEthernet0/2-3
  switchport mode access
- switchport access vlan 30
+ switchport access vlan 50
  switchport voice vlan 80
  spanning-tree portfast
  exit
@@ -34,13 +34,13 @@ interface range FastEthernet0/21-24
 interface range GigabitEthernet0/1-2
  decription ETHER_CHANNEL_TO_CORE
  switchport mode trunk
- switchport trunk allowed vlan 30,80
+ switchport trunk allowed vlan 50,80
  channel-group 4 mode active
  exit
 
-interface Port-channel4
+interface Port-channel3
  switchport mode trunk
- switchport trunk allowed vlan 30,80
+ switchport trunk allowed vlan 50,80
  exit
 
 interface Vlan1

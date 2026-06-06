@@ -1,15 +1,18 @@
 hostname Company_Router
 
 interface Loopback0
+ description SCCP_SOURCE
  ip address 10.10.10.10 255.255.255.255
  exit
 
 interface FastEthernet0/0
+ description EXTERNAL_INTERNET
  ip address 8.8.8.1 255.255.255.0
  no shutdown
  exit
 
 interface FastEthernet0/1
+ description BONDARY_LINK_TO_ASA
  ip address 200.0.0.1 255.255.255.252
  no shutdown
  exit
