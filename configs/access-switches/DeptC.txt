@@ -30,7 +30,6 @@ interface range FastEthernet0/21-24
  description ADMINISTRATIVELY_DOWN
  shutdown
  exit
- do wr
 
 interface range GigabitEthernet0/1-2
  decription ETHER_CHANNEL_TO_CORE
